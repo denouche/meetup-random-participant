@@ -5,7 +5,7 @@ var q = require('q'),
 
 
 
-function getCitation() {
+function getUsers() {
     var deferred = q.defer();
     var users = [];
     request({
@@ -45,7 +45,7 @@ function getCitation() {
 }
 
 
-getCitation()
+getUsers()
     .then(function(users) {
         console.log('Sur un total de ' + users.length + ' participants');
         console.log(users[_.random(0, users.length - 1)])
