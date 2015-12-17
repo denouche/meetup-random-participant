@@ -1,7 +1,9 @@
 var q = require('q'),
     htmlparser = require('htmlparser2'),
     request = require('request'),
-    _ = require('lodash');
+    _ = require('lodash'),
+    meetupGroupName = process.env.MEETUP_GROUP,
+    meetupEventId = process.env.MEETUP_EVENT;
 
 
 
@@ -9,7 +11,7 @@ function getUsers() {
     var deferred = q.defer();
     var users = [];
     request({
-        url: 'http://www.meetup.com/fr/ChtiJUG/events/226992012/',
+        url: 'http://www.meetup.com/fr/'+meetupGroupName+'/events/'+meetupEventId+'/',
         method: 'GET',
         gzip: true,
         headers: {
